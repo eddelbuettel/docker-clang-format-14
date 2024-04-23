@@ -10,5 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt update -qq \
     && apt upgrade --yes \
-    && apt install --yes --no-install-recommends clang-format-14 \
+    && apt install --yes --no-install-recommends clang-format-14 make \
+    && cd /usr/local/bin \
+    && ln -s /usr/bin/clang-format-14 clang-format \
     && rm -rf /var/lib/apt/lists/*
